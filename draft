@@ -1,0 +1,16 @@
+// for (let item1 of input) {
+    //     for(let item2 of Object.keys(letters)){
+    //         // console.log(letters[item2]); item2 - ключи, letters[item2] - значення
+    //         if(item1 === letters[item2]){
+    //             out.push(item2);
+    //         }
+    //         else if(item1 !== letters[item2]){
+    //             for (let item3 of Object.keys(swap1)) {
+    //                 console.log(item3);
+    //                 if (item1 === swap1[item3]) {
+    //                     out.push(item3);
+    //                     console.log('!!!');
+    //                 }
+    //             }
+    //         }
+    //     }
