@@ -1,3 +1,5 @@
+let output = document.querySelector('.out');
+
 let letters = {
     'q': 'й',
     'w': 'ц',
@@ -53,7 +55,7 @@ function converter(){
     //hasOwn шукає в об'єкті елемент
 
     for (let item of input) {
-        if (Object.hasOwn(letters, item)) {
+        if (Object.hasOwn(letters, item)) { 
             out.push(letters[item]);
         }
         else if(Object.hasOwn(swap, item)){
@@ -71,12 +73,12 @@ function converter(){
         
     }
 
-    document.querySelector('.out').innerHTML=out.join('');
+    output.innerHTML=out.join('');
 }
 
 function clear(){
     document.getElementById('text').value = '';
-    document.querySelector('.out').innerHTML='';
+    output.innerHTML='';
     
 }
 
@@ -89,9 +91,8 @@ function copy(){
     let selection = window.getSelection();
     selection.removeAllRanges();
 
-    let out = document.querySelector('.out');
     let textRange = document.createRange();
-    textRange.selectNodeContents(out);
+    textRange.selectNodeContents(output);
     selection.addRange(textRange);
     document.execCommand("copy");
 
