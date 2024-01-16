@@ -32,7 +32,6 @@ button{
     background: aliceblue;
     color: black;
     font-family: inherit;
-    /* text-align: center; */
     font-size: 10px;
     width: 4.5em;
     height: 2em;
@@ -48,4 +47,8 @@ button{
     resize: none;
     border: none;
     border-radius: 5px;
+}
+
+p{
+    display: none;
 }
