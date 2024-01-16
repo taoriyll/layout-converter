@@ -10,13 +10,13 @@ body{
 
 .container{
     max-width: 250px;
-    min-height: 310px;
+    min-height: 300px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-content:center;
     align-items:flex-start;
-    margin-top: 20px;
+    margin-top: 10px;
     padding: 5px;
     /* background-color: */
     color: aliceblue;
@@ -24,8 +24,12 @@ body{
     border-radius: 5px;
 }
 
+h2{
+    margin: 10px auto;
+}
+
 button{
-    margin: 0px 5px 5px 5px;
+    margin: 10px 5px;
     display: inline-block;
     border-radius: 5px;
     border: none;
@@ -49,6 +53,13 @@ button{
     border-radius: 5px;
 }
 
-p{
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+.hint{
     display: none;
+    font-size: 10px;
+    animation: none;
 }

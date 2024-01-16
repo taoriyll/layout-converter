@@ -96,6 +96,18 @@ function copy(){
     document.execCommand("copy");
 }
 
+function hints(){
+    let hint = document.querySelector(".hint");
+    hint.style.display = 'block';
+    hint.style.animation = 'fadeOut 4s ease forwards';
+    console.log(1);
+}
+
+function copyButton(){
+    copy();
+    hints();
+}
+
 document.querySelector('.b-convert').onclick = converter;
 document.querySelector('.b-clear').onclick = clear;
-document.querySelector('.b-copy').onclick = copy;
+document.querySelector('.b-copy').addEventListener("click", copyButton);
