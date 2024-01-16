@@ -108,6 +108,6 @@ function copyButton(){
     hints();
 }
 
-document.querySelector('.b-convert').onclick = converter;
-document.querySelector('.b-clear').onclick = clear;
+document.querySelector('.b-convert').addEventListener("click", converter);
+document.querySelector('.b-clear').addEventListener("click", clear);
 document.querySelector('.b-copy').addEventListener("click", copyButton);
