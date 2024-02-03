@@ -1,47 +1,49 @@
 const letters = {
-    'q': 'й',
-    'w': 'ц',
-    'e': 'у',
-    'r': 'к',
-    't': 'е',
-    'y': 'н',
-    'u': 'г',
-    'i': 'ш',
-    'o': 'щ',
-    'p': 'з',
-    '[': 'х',
-    ']': 'ї',
-    'a': 'ф',
-    's': 'і',
-    'd': 'в',
-    'f': 'а',
-    'g': 'п',
-    'h': 'р',
-    'j': 'о',
-    'k': 'л',
-    'l': 'д',
-    ';': 'ж',
-    "'": 'є',
-    'z': 'я',
-    'x': 'ч',
-    'c': 'с',
-    'v': 'м',
-    'b': 'и',
-    'n': 'т',
-    'm': 'ь',
-    ',': 'б',
-    '.': 'ю',
-    ' ': ' ',
-    '?': ',',
-    '/': '.'
-};
+    q: "й",
+    w: "ц",
+    e: "у",
+    r: "к",
+    t: "е",
+    y: "н",
+    u: "г",
+    i: "ш",
+    o: "щ",
+    p: "з",
+    "[": "х",
+    "]": "ї",
+    a: "ф",
+    s: "і",
+    d: "в",
+    f: "а",
+    g: "п",
+    h: "р",
+    j: "о",
+    k: "л",
+    l: "д",
+    ";": "ж",
+    "'": "є",
+    z: "я",
+    x: "ч",
+    c: "с",
+    v: "м",
+    b: "и",
+    n: "т",
+    m: "ь",
+    ",": "б",
+    ".": "ю",
+    "?": ",",
+    "/": ".",
+  };
 
 const swappedLetters = Object.fromEntries(
     Object.entries(letters).map(([key, value]) => [value, key])
 );
 
 const capitalLetters = Object.fromEntries(
-    Object.entries(letters).map(([key, value]) => [key.toUpperCase(), value.toUpperCase()])
+    Object.entries(letters).map(([key, value]) => [
+        key.toUpperCase(),
+        value.toUpperCase()
+    ])
 );
 
 const swappedCapitalLetters = Object.fromEntries(
@@ -50,10 +52,10 @@ const swappedCapitalLetters = Object.fromEntries(
 
 // fromEntries перетворює масив в об'єкт
 // entries перетворює об'єкт в масив
-const output = document.querySelector('.out');
+const output = document.querySelector(".out");
 
 function converter(){
-    const input = document.getElementById('text').value;
+    const input = document.getElementById("text").value;
     let out = [];
     
     //hasOwn шукає в об'єкті елемент
@@ -74,12 +76,12 @@ function converter(){
             out.push(item);
         }
     }
-    output.innerHTML = out.join('');
+    output.innerHTML = out.join("");
 }
 
 function clear(){
-    document.getElementById('text').value = '';
-    output.innerHTML='';
+    document.getElementById('text').value = "";
+    output.innerHTML = "";
 }
 
 function copy(){
@@ -100,6 +102,6 @@ function copyHint(){
     }, 1200);
 }
 
-document.querySelector('.b-convert').addEventListener("click", converter);
-document.querySelector('.b-clear').addEventListener("click", clear);
-document.querySelector('.b-copy').addEventListener("click", copy);
+document.querySelector(".b-convert").addEventListener("click", converter);
+document.querySelector(".b-clear").addEventListener("click", clear);
+document.querySelector(".b-copy").addEventListener("click", copy);
