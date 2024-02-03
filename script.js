@@ -45,6 +45,16 @@ const capitalLetters = Object.fromEntries(
         value.toUpperCase()
     ])
 );
+function addException(key, value){
+    return capitalLetters[key] = value;
+}
+
+addException("<", "Б");
+addException(">", "Ю");
+addException("{", "Х");
+addException("}", "Ї");
+addException(':', "Ж");
+addException('"', "Є");
 
 const swappedCapitalLetters = Object.fromEntries(
     Object.entries(capitalLetters).map(([key, value]) => [value, key])
@@ -56,9 +66,10 @@ const output = document.querySelector(".out");
 
 function converter(){
     const input = document.getElementById("text").value;
+    console.log(input);
     let outputArray = [];
-    
-    //hasOwn шукає в об'єкті елемент
+  
+    // hasOwn шукає в об'єкті елемент
     for (const item of input) {
         if (Object.hasOwn(letters, item)) { 
             outputArray.push(letters[item]);
@@ -77,6 +88,19 @@ function converter(){
         }
     }
     output.innerHTML = outputArray.join("");
+}
+
+function findReplacement(item) {
+    const objectsToCheck = {...letters, ...swappedLetters, ...capitalLetters, ...swappedCapitalLetters};
+
+    // for (const obj of objectsToCheck) {
+    //     if (Object.hasOwnProperty(obj, item)) {
+    //         return obj[item];
+    //     }
+        console.log(objectsToCheck);
+    // }
+
+    return item;
 }
 
 function clear(){
