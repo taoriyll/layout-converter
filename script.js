@@ -33,7 +33,7 @@ const letters = {
     ".": "ю",
     "?": ",",
     "/": ".",
-  };
+};
 
 const swappedLetters = Object.fromEntries(
     Object.entries(letters).map(([key, value]) => [value, key])
@@ -56,27 +56,27 @@ const output = document.querySelector(".out");
 
 function converter(){
     const input = document.getElementById("text").value;
-    let out = [];
+    let outputArray = [];
     
     //hasOwn шукає в об'єкті елемент
     for (const item of input) {
         if (Object.hasOwn(letters, item)) { 
-            out.push(letters[item]);
+            outputArray.push(letters[item]);
         }
         else if(Object.hasOwn(swappedLetters, item)){
-            out.push(swappedLetters[item]);
+            outputArray.push(swappedLetters[item]);
         }
         else if(Object.hasOwn(capitalLetters, item)){
-            out.push(capitalLetters[item]);
+            outputArray.push(capitalLetters[item]);
         }
         else if(Object.hasOwn(swappedCapitalLetters, item)){
-            out.push(swappedCapitalLetters[item]);
+            outputArray.push(swappedCapitalLetters[item]);
         }
         else {
-            out.push(item);
+            outputArray.push(item);
         }
     }
-    output.innerHTML = out.join("");
+    output.innerHTML = outputArray.join("");
 }
 
 function clear(){
