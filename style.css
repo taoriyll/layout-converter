@@ -59,6 +59,11 @@ button{
 
 .hint{
     display: none;
-    font-size: 10px;
-    animation: none;
 }
+
+.show-hint{
+    display: block;
+    font-size: 10px;
+    animation: fadeOut 4s ease forwards;
+}
+

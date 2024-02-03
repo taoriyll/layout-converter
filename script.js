@@ -57,7 +57,7 @@ function converter(){
     let out = [];
     
     //hasOwn шукає в об'єкті елемент
-    for (let item of input) {
+    for (const item of input) {
         if (Object.hasOwn(letters, item)) { 
             out.push(letters[item]);
         }
@@ -74,7 +74,7 @@ function converter(){
             out.push(item);
         }
     }
-    output.innerHTML=out.join('');
+    output.innerHTML = out.join('');
 }
 
 function clear(){
@@ -97,10 +97,12 @@ function copy(){
 }
 
 function copyHint(){
-    let hint = document.querySelector(".hint");
-    hint.style.display = 'block';
-    hint.style.animation = 'fadeOut 4s ease forwards';
-    console.log(1);
+    const hint = document.querySelector(".hint");
+    hint.classList.add("show-hint");
+
+    setTimeout(function(){
+        hint.classList.remove("show-hint");
+    }, 1000);
 }
 
 document.querySelector('.b-convert').addEventListener("click", converter);
