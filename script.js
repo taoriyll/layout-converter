@@ -35,10 +35,6 @@ const letters = {
     "/": ".",
 };
 
-const swappedLetters = Object.fromEntries(
-    Object.entries(letters).map(([key, value]) => [value, key])
-);
-
 const capitalLetters = Object.fromEntries(
     Object.entries(letters).map(([key, value]) => [
         key.toUpperCase(),
@@ -48,7 +44,6 @@ const capitalLetters = Object.fromEntries(
 function addException(key, value){
     return capitalLetters[key] = value;
 }
-
 addException("<", "Б");
 addException(">", "Ю");
 addException("{", "Х");
@@ -56,9 +51,16 @@ addException("}", "Ї");
 addException(':', "Ж");
 addException('"', "Є");
 
+const swappedLetters = Object.fromEntries(
+    Object.entries(letters).map(([key, value]) => [value, key])
+);
+
 const swappedCapitalLetters = Object.fromEntries(
     Object.entries(capitalLetters).map(([key, value]) => [value, key])
 );
+
+const initialObjects = {...capitalLetters, ...letters};
+const swappedObjects = {...swappedCapitalLetters, ...swappedLetters};
 
 // fromEntries перетворює масив в об'єкт
 // entries перетворює об'єкт в масив
@@ -66,22 +68,14 @@ const output = document.querySelector(".out");
 
 function converter(){
     const input = document.getElementById("text").value;
-    console.log(input);
     let outputArray = [];
-  
     // hasOwn шукає в об'єкті елемент
     for (const item of input) {
-        if (Object.hasOwn(letters, item)) { 
-            outputArray.push(letters[item]);
+        if (Object.hasOwn(initialObjects, item)) { 
+            outputArray.push(initialObjects[item]);
         }
-        else if(Object.hasOwn(swappedLetters, item)){
-            outputArray.push(swappedLetters[item]);
-        }
-        else if(Object.hasOwn(capitalLetters, item)){
-            outputArray.push(capitalLetters[item]);
-        }
-        else if(Object.hasOwn(swappedCapitalLetters, item)){
-            outputArray.push(swappedCapitalLetters[item]);
+        else if(Object.hasOwn(swappedObjects, item)){
+            outputArray.push(swappedObjects[item]);
         }
         else {
             outputArray.push(item);
@@ -90,29 +84,16 @@ function converter(){
     output.innerHTML = outputArray.join("");
 }
 
-function findReplacement(item) {
-    const objectsToCheck = {...letters, ...swappedLetters, ...capitalLetters, ...swappedCapitalLetters};
-
-    // for (const obj of objectsToCheck) {
-    //     if (Object.hasOwnProperty(obj, item)) {
-    //         return obj[item];
-    //     }
-        console.log(objectsToCheck);
-    // }
-
-    return item;
-}
-
 function clear(){
-    document.getElementById('text').value = "";
+    document.getElementById("text").value = "";
     output.innerHTML = "";
 }
 
 function copy(){
-    const copyText = document.querySelector(".out");
-   // Copy the text inside the text field
-   if(copyText.innerHTML){
-        navigator.clipboard.writeText(copyText.innerHTML);
+    const copyInput = document.querySelector(".out").innerHTML;
+   
+   if(copyInput){
+        navigator.clipboard.writeText(copyInput);
         copyHint();
    }
 }
@@ -121,7 +102,7 @@ function copyHint(){
     const hint = document.querySelector(".hint");
     hint.classList.add("show-hint");
 
-    setTimeout(function(){
+    setTimeout( function(){
         hint.classList.remove("show-hint");
     }, 1200);
 }
