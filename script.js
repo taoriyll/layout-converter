@@ -82,18 +82,13 @@ function clear(){
     output.innerHTML='';
 }
 
-//createRange створює range об'єкт, який маніпулюює DOM об'єктами
-// selectNodeContents виділяє об'єкт
-// removeAllRanges видаляє усе виділене в selection, addRange добавляє 
-// execCommand копіює
-
 function copy(){
-    let selection = window.getSelection();
-    selection.removeAllRanges();
-    let textRange = document.createRange();
-    textRange.selectNodeContents(output);
-    selection.addRange(textRange);
-    document.execCommand("copy");
+    const copyText = document.querySelector(".out");
+   // Copy the text inside the text field
+   if(copyText.innerHTML){
+        navigator.clipboard.writeText(copyText.innerHTML);
+        copyHint();
+   }
 }
 
 function copyHint(){
@@ -102,12 +97,9 @@ function copyHint(){
 
     setTimeout(function(){
         hint.classList.remove("show-hint");
-    }, 1000);
+    }, 1200);
 }
 
 document.querySelector('.b-convert').addEventListener("click", converter);
 document.querySelector('.b-clear').addEventListener("click", clear);
-document.querySelector('.b-copy').addEventListener("click", function(){
-    copy();
-    copyHint();
-});
+document.querySelector('.b-copy').addEventListener("click", copy);
