@@ -6,4 +6,4 @@
 Спробуйте: 
 - P ecs[ ndfhby nskmrb k.lbyf dvs' cvsznbcz? [jxf zrhfp e yt] lkz wmjuj yfqvtyit ghbxby/ Thytcn {tvsyuetq
 - Тумук пщттф пшму нщг гзю Тумук пщттф дуе нщг вщцтю
-- >dtksh/ <fxe/ "lbybq/ :thndf/ {hfv/ };f (у цьому немає сенсу, просто важкий випадок)
+- `>dtksh/ <fxe/ "lbybq/ :thndf/ {hfv/ };f` (у цьому немає сенсу, просто важкий випадок)
