@@ -35,10 +35,12 @@ const letters = {
     "/": ".",
 };
 
+// function for adding exceptions to objects(in case there will be more languages in future)
 function addException(object, key, value){
     return object[key] = value;
 }
 
+//create object with upper-case elements
 const capitalLetters = Object.fromEntries(
     Object.entries(letters).map(([key, value]) => [
         key.toUpperCase(),
@@ -53,6 +55,7 @@ addException(capitalLetters, "}", "Ї");
 addException(capitalLetters, ':', "Ж");
 addException(capitalLetters, '"', "Є");
 
+//create objects with swapped keys and values
 const swappedLetters = Object.fromEntries(
     Object.entries(letters).map(([key, value]) => [value, key])
 );
@@ -60,15 +63,17 @@ const swappedCapitalLetters = Object.fromEntries(
     Object.entries(capitalLetters).map(([key, value]) => [value, key])
 );
 
+//merge objects for better iteration
 const initialObjects = {...capitalLetters, ...letters};
 const swappedObjects = {...swappedCapitalLetters, ...swappedLetters};
+//for outputting the result
 const output = document.querySelector(".out");
 
 function converter(){
     const input = document.getElementById("text").value;
     let outputArray = [];
-    // hasOwn шукає в об'єкті елемент
     for (const item of input) {
+        //search for a match in "input" and created objects
         if (Object.hasOwn(initialObjects, item)) { 
             outputArray.push(initialObjects[item]);
         }
@@ -82,24 +87,24 @@ function converter(){
     output.innerHTML = outputArray.join("");
 }
 
+//function to clear input
 function clear(){
     document.getElementById("text").value = "";
     output.innerHTML = "";
 }
 
+//function to copy the result
 function copy(){
     const copyInput = document.querySelector(".out").innerHTML;
-   
    if(copyInput){
         navigator.clipboard.writeText(copyInput);
         copyHint();
-   }
+    }
 }
-
+//function that appears when the result is copied
 function copyHint(){
     const hint = document.querySelector(".hint");
     hint.classList.add("show-hint");
-
     setTimeout( function(){
         hint.classList.remove("show-hint");
     }, 1200);
