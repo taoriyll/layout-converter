@@ -35,7 +35,7 @@ const letters = {
     "/": ".",
 };
 
-// function for adding exceptions to objects(in case there will be more languages in future)
+// function for adding exceptions to objects(in case there are more languages in the future)
 function addException(object, key, value){
     return object[key] = value;
 }
@@ -73,7 +73,7 @@ function converter(){
     const input = document.getElementById("text").value;
     let outputArray = [];
     for (const item of input) {
-        //search for a match in "input" and created objects
+        //search for a match in input and objects
         if (Object.hasOwn(initialObjects, item)) { 
             outputArray.push(initialObjects[item]);
         }
