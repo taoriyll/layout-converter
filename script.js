@@ -35,35 +35,33 @@ const letters = {
     "/": ".",
 };
 
+function addException(object, key, value){
+    return object[key] = value;
+}
+
 const capitalLetters = Object.fromEntries(
     Object.entries(letters).map(([key, value]) => [
         key.toUpperCase(),
         value.toUpperCase()
     ])
 );
-function addException(key, value){
-    return capitalLetters[key] = value;
-}
-addException("<", "Б");
-addException(">", "Ю");
-addException("{", "Х");
-addException("}", "Ї");
-addException(':', "Ж");
-addException('"', "Є");
+
+addException(capitalLetters, "<", "Б");
+addException(capitalLetters, ">", "Ю");
+addException(capitalLetters, "{", "Х");
+addException(capitalLetters, "}", "Ї");
+addException(capitalLetters, ':', "Ж");
+addException(capitalLetters, '"', "Є");
 
 const swappedLetters = Object.fromEntries(
     Object.entries(letters).map(([key, value]) => [value, key])
 );
-
 const swappedCapitalLetters = Object.fromEntries(
     Object.entries(capitalLetters).map(([key, value]) => [value, key])
 );
 
 const initialObjects = {...capitalLetters, ...letters};
 const swappedObjects = {...swappedCapitalLetters, ...swappedLetters};
-
-// fromEntries перетворює масив в об'єкт
-// entries перетворює об'єкт в масив
 const output = document.querySelector(".out");
 
 function converter(){
