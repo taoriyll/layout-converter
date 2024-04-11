@@ -1,70 +1,76 @@
-body{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content:center;
-    zoom:200%;
-    font-family: inherit;
-
+body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  zoom: 175%;
+  font-family: inherit;
 }
 
-.container{
-    max-width: 250px;
-    min-height: 300px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content:center;
-    align-items:flex-start;
-    margin-top: 10px;
-    padding: 5px;
-    color: aliceblue;
-    background: linear-gradient(to top right, rgb(59, 91, 196), rgb(121, 180, 184));
-    border-radius: 5px;
+.container {
+  max-width: 250px;
+  min-height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: flex-start;
+  margin-top: 10px;
+  padding: 5px;
+  color: aliceblue;
+  background: linear-gradient(
+    to top right,
+    rgb(59, 91, 196),
+    rgb(121, 180, 184)
+  );
+  border-radius: 5px;
 }
 
-h2{
-    margin: 10px auto;
+h2 {
+  margin: 10px auto;
 }
 
-button{
-    margin: 10px 5px;
-    display: inline-block;
-    border-radius: 5px;
-    border: none;
-    background: aliceblue;
-    color: black;
-    font-family: inherit;
-    font-size: 10px;
-    width: 4.5em;
-    height: 2em;
-    cursor: pointer;
+button {
+  margin: 10px 5px;
+  display: inline-block;
+  border-radius: 5px;
+  border: none;
+  background: aliceblue;
+  color: black;
+  font-family: inherit;
+  font-size: 10px;
+  width: 4.5em;
+  height: 2em;
+  cursor: pointer;
 }
 
-.out{
-    margin: 0px 5px 0px 5px ;
-    text-align: center;
+.out {
+  margin: 0px 5px 0px 5px;
+  text-align: center;
 }
 
-#text{
-    margin: 5px;
-    resize: none;
-    border: none;
-    border-radius: 5px;
+#text {
+  margin: 5px;
+  resize: none;
+  border: none;
+  border-radius: 5px;
 }
 
 @keyframes fadeOut {
-    0% { opacity: 1; }
-    100% { opacity: 0; }
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
-.hint{
-    display: none;
+.hint {
+  display: none;
 }
 
-.show-hint{
-    display: block;
-    font-size: 10px;
-    animation: fadeOut 4s ease forwards;
+.show-hint {
+  display: block;
+  font-size: 10px;
+  animation: fadeOut 4s ease forwards;
 }
-
