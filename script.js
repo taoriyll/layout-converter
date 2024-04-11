@@ -5,9 +5,13 @@ const LETTERS = {};
 LATIN.forEach((key, index) => {
   LETTERS[key] = CYRILLIC[index];
 });
+
 //create object with upper-case elements
 const CAPITAL_LETTERS = Object.fromEntries(
-  Object.entries(LETTERS).map(([key, value]) => [key.toUpperCase(), value.toUpperCase(),])
+  Object.entries(LETTERS).map(([key, value]) => [
+    key.toUpperCase(),
+    value.toUpperCase(),
+  ])
 );
 
 //create objects with swapped keys and values
@@ -26,7 +30,9 @@ const OUTPUT = document.querySelector(".out");
 
 function converter() {
   const INPUT = document.getElementById("text").value;
-  OUTPUT.textContent = INPUT.split('').map(char => INITIAL_OBJECTS[char] || SWAPPED_OBJECTS[char] || char).join('');
+  OUTPUT.textContent = INPUT.split("")
+    .map((char) => INITIAL_OBJECTS[char] || SWAPPED_OBJECTS[char] || char)
+    .join("");
 }
 
 //function to clear input
