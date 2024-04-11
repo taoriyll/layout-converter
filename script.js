@@ -1,113 +1,57 @@
-const letters = {
-    q: "й",
-    w: "ц",
-    e: "у",
-    r: "к",
-    t: "е",
-    y: "н",
-    u: "г",
-    i: "ш",
-    o: "щ",
-    p: "з",
-    "[": "х",
-    "]": "ї",
-    a: "ф",
-    s: "і",
-    d: "в",
-    f: "а",
-    g: "п",
-    h: "р",
-    j: "о",
-    k: "л",
-    l: "д",
-    ";": "ж",
-    "'": "є",
-    z: "я",
-    x: "ч",
-    c: "с",
-    v: "м",
-    b: "и",
-    n: "т",
-    m: "ь",
-    ",": "б",
-    ".": "ю",
-    "?": ",",
-    "/": ".",
-};
+const LATIN = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]", "a", "s", "d", "f", "g", "h", "j", "k","l", ";", "'", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?", "/", "<", ">", "{", "}", ":", '"'];
+const CYRILLIC = [ "й", "ц", "у", "к", "е", "н", "г", "ш", "щ", "з", "х", "ї", "ф", "і", "в", "а", "п", "р", "о", "л", "д", "ж", "є", "я", "ч", "с", "м", "и", "т", "ь", "б", "ю", ",", ".", "Б", "Ю", "Х", "Ї", "Ж", "Є"];
 
-// function for adding exceptions to objects(in case there are more languages in the future)
-function addException(object, key, value){
-    return object[key] = value;
-}
-
+const LETTERS = {};
+LATIN.forEach((key, index) => {
+  LETTERS[key] = CYRILLIC[index];
+});
 //create object with upper-case elements
-const capitalLetters = Object.fromEntries(
-    Object.entries(letters).map(([key, value]) => [
-        key.toUpperCase(),
-        value.toUpperCase()
-    ])
+const CAPITAL_LETTERS = Object.fromEntries(
+  Object.entries(LETTERS).map(([key, value]) => [key.toUpperCase(), value.toUpperCase(),])
 );
-
-addException(capitalLetters, "<", "Б");
-addException(capitalLetters, ">", "Ю");
-addException(capitalLetters, "{", "Х");
-addException(capitalLetters, "}", "Ї");
-addException(capitalLetters, ':', "Ж");
-addException(capitalLetters, '"', "Є");
 
 //create objects with swapped keys and values
-const swappedLetters = Object.fromEntries(
-    Object.entries(letters).map(([key, value]) => [value, key])
+const SWAPPED_LETTERS = Object.fromEntries(
+  Object.entries(LETTERS).map(([key, value]) => [value, key])
 );
-const swappedCapitalLetters = Object.fromEntries(
-    Object.entries(capitalLetters).map(([key, value]) => [value, key])
+const SWAPPED_CAPITAL_LETTERS = Object.fromEntries(
+  Object.entries(CAPITAL_LETTERS).map(([key, value]) => [value, key])
 );
 
 //merge objects for better iteration
-const initialObjects = {...capitalLetters, ...letters};
-const swappedObjects = {...swappedCapitalLetters, ...swappedLetters};
+const INITIAL_OBJECTS = { ...CAPITAL_LETTERS, ...LETTERS };
+const SWAPPED_OBJECTS = { ...SWAPPED_CAPITAL_LETTERS, ...SWAPPED_LETTERS };
 //for outputting the result
-const output = document.querySelector(".out");
+const OUTPUT = document.querySelector(".out");
 
-function converter(){
-    const input = document.getElementById("text").value;
-    let outputArray = [];
-    for (const item of input) {
-        //search for a match in input and objects
-        if (Object.hasOwn(initialObjects, item)) { 
-            outputArray.push(initialObjects[item]);
-        }
-        else if(Object.hasOwn(swappedObjects, item)){
-            outputArray.push(swappedObjects[item]);
-        }
-        else {
-            outputArray.push(item);
-        }
-    }
-    output.innerHTML = outputArray.join("");
+function converter() {
+  const INPUT = document.getElementById("text").value;
+  OUTPUT.textContent = INPUT.split('').map(char => INITIAL_OBJECTS[char] || SWAPPED_OBJECTS[char] || char).join('');
 }
 
 //function to clear input
-function clear(){
-    document.getElementById("text").value = "";
-    output.innerHTML = "";
+function clear() {
+  document.getElementById("text").value = "";
+  OUTPUT.innerHTML = "";
 }
 
 //function to copy the result
-function copy(){
-    const copyInput = document.querySelector(".out").innerHTML;
-   if(copyInput){
-        navigator.clipboard.writeText(copyInput);
-        copyHint();
-    }
+function copy() {
+  const COPY_INPUT = document.querySelector(".out").innerHTML;
+  if (COPY_INPUT) {
+    navigator.clipboard.writeText(COPY_INPUT);
+    copyHint();
+  }
 }
+
 //function that appears when the result is copied
-function copyHint(){
-    const hint = document.querySelector(".hint");
-    hint.classList.add("show-hint");
-    setTimeout( function(){
-        hint.classList.remove("show-hint");
-    }, 1200);
+const TIMER = 1200;
+function copyHint() {
+  const HINT = document.querySelector(".hint");
+  HINT.classList.add("show-hint");
+  setTimeout(function () {
+    HINT.classList.remove("show-hint");
+  }, TIMER);
 }
 
 document.querySelector(".b-convert").addEventListener("click", converter);
