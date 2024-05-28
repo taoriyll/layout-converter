@@ -7,3 +7,6 @@
 - `P ecs[ ndfhby nskmrb k.lbyf dvs' cvsznbcz? [jxf zrhfp e yt] lkz wmjuj yfqvtyit ghbxby/ Thytcn {tvsyuetq`
 - `Тумук пщттф пшму нщг гзю Тумук пщттф дуе нщг вщцтю`
 - `>dtksh/ <fxe/ "lbybq/ :thndf/ {hfv/ };f (у цьому немає сенсу, просто важкий випадок)`
+- `Ghfw.'! Ерші цщклі ещщ!`
+
+Також цей код можна легко перетворити у розширення в Google Chrome. Для детальної інформації раджу прочитати статтю від [freeCodeCamp](https://www.freecodecamp.org/news/building-chrome-extension/)

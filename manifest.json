@@ -1,10 +1,11 @@
 {
     "name": "Layout converter",
-    "version": "1.0.0",
+    "version": "1.1",
     "description": "Converts EN layout to UA and vice versa",
     "manifest_version": 3,
     "author": "mmmsribranets@gmail.com",
     "icons": {
+        "16": "exchange.png",
         "48": "exchange.png"
       },
     "action":{

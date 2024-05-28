@@ -3,7 +3,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
-  zoom: 175%;
+  zoom: 150%;
   font-family: inherit;
 }
 
@@ -27,10 +27,13 @@ body {
 }
 
 h2 {
+  width: 100%;
+  text-align: center;
   margin: 10px auto;
 }
 
 button {
+  zoom: 130%;
   margin: 10px 5px;
   display: inline-block;
   border-radius: 5px;
