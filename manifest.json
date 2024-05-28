@@ -1,0 +1,14 @@
+{
+    "name": "Layout converter",
+    "version": "1.0.0",
+    "description": "Converts EN layout to UA and vice versa",
+    "manifest_version": 3,
+    "author": "mmmsribranets@gmail.com",
+    "icons": {
+        "48": "exchange.png"
+      },
+    "action":{
+        "default_popup": "index.html",
+        "default_title": "EN ⇄ UA Layout Conventer"
+    }
+}
